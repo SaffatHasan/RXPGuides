@@ -4,7 +4,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 1-6 Tirisfal Glades
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #defaultfor Scourge
 #next 6-10 Eversong Woods
 step << !Scourge

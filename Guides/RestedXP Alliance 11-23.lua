@@ -4,7 +4,7 @@ RXPGuides.RegisterGuide([[
 << Alliance !Warlock/Alliance wotlk
 #name 11-14 Darkshore
 #version 1
-#group RestedXP Alliance 1-20
+#group Alliance 1-20
 #defaultfor !Draenei
 #next 14-20 Bloodmyst
 #xprate <1.5 << Human Warlock
@@ -368,7 +368,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 14-20 Bloodmyst
 #version 1
-#group RestedXP Alliance 1-20
+#group Alliance 1-20
 #defaultfor !Draenei
 #next RestedXP Alliance 20-32\20-21 Darkshore << !Warlock
 #next RestedXP Alliance 20-32\20-23 Darkshore/Ashenvale << Warlock
@@ -1217,7 +1217,7 @@ RXPGuides.RegisterGuide([[
 << Alliance !Warlock
 #name 20-21 Darkshore
 #version 1
-#group RestedXP Alliance 20-32
+#group Alliance 20-32
 #defaultfor !Draenei
 #next 21-23 Ashenvale
 step
@@ -1586,7 +1586,7 @@ RXPGuides.RegisterGuide([[
 << Alliance !Warlock
 #name 21-23 Ashenvale
 #version 1
-#group RestedXP Alliance 20-32
+#group Alliance 20-32
 #defaultfor !Draenei
 #next 23-24 Wetlands;24-27 Redridge/Duskwood
 step
@@ -1866,7 +1866,7 @@ RXPGuides.RegisterGuide([[
 << Alliance Warlock
 #name 20-23 Darkshore/Ashenvale
 #version 1
-#group RestedXP Alliance 20-32
+#group Alliance 20-32
 #next 23-24 Wetlands;24-27 Redridge/Duskwood
 step
     .goto Darkshore,37.0,44.1

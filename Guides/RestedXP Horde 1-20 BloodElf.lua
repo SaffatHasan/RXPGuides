@@ -4,7 +4,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 1-6 Eversong Woods
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #defaultfor BloodElf
 #next 6-10 Eversong Woods
 step << !BloodElf
@@ -401,7 +401,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 6-10 Eversong Woods
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #next 10-20 Eversong Woods / Ghostlands << !Warrior
 #next 10-13 Durotar << Warrior
 step
@@ -1100,7 +1100,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 10-20 Eversong Woods / Ghostlands
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #next 20-23 Stonetalon / The Barrens
 step << Orc Hunter/Troll Hunter
     .money <0.1000

@@ -4,7 +4,7 @@ RXPGuides.RegisterGuide([[
 << Horde !Warrior !Shaman
 #name 20-23 Stonetalon / The Barrens
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #next 23-27 Hillsbrad / Ashenvale
 step << wotlk
     #completewith next
@@ -1066,7 +1066,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 23-27 Hillsbrad / Ashenvale
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #next 27-30 Lower Barrens / Thousand Needles
 
 step << !Shaman
@@ -1848,7 +1848,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 27-30 Lower Barrens / Thousand Needles
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #next RestedXP Horde 30-45\30-34 Hillsbrad / Arathi / Shimmering Flats
 
 step

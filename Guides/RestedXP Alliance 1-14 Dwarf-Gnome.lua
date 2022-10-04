@@ -5,7 +5,7 @@ RXPGuides.RegisterGuide([[
 #name 1-6 Coldridge Valley
 #next 6-11 Dun Morogh
 #version 1
-#group RestedXP Alliance 1-20
+#group Alliance 1-20
 #defaultfor Gnome/Dwarf
 step << !Gnome !Dwarf
     #sticky
@@ -324,7 +324,7 @@ RXPGuides.RegisterGuide([[
 << Alliance !Warlock !Hunter
 #name 6-11 Dun Morogh
 #version 1
-#group RestedXP Alliance 1-20
+#group Alliance 1-20
 #defaultfor Gnome/Dwarf
 #next 11-14 Darkshore
 step
@@ -1379,7 +1379,7 @@ RXPGuides.RegisterGuide([[
 << Alliance Warlock
 #name 1-12 Dun Morogh
 #version 1
-#group RestedXP Alliance 1-20
+#group Alliance 1-20
 #defaultfor Gnome Warlock
 #next 12-14 Loch Modan Gnome;11-14 Darkshore
 step << !Gnome !Dwarf
@@ -2498,7 +2498,7 @@ RXPGuides.RegisterGuide([[
 << Alliance Warlock
 #name 12-14 Loch Modan Gnome
 #version 1
-#group RestedXP Alliance 1-20
+#group Alliance 1-20
 #defaultfor Gnome Warlock
 #next 14-20 Bloodmyst
 step
@@ -2834,7 +2834,7 @@ RXPGuides.RegisterGuide([[
 << Alliance Hunter
 #name 1-11 Dun Morogh
 #version 1
-#group RestedXP Alliance 1-20
+#group Alliance 1-20
 #defaultfor Dwarf Hunter
 #next 11-14 Darkshore
 step << !Gnome !Dwarf

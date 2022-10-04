@@ -1,10 +1,9 @@
 ## Interface: 20504
-## Interface-Classic: 11403
 ## Title: RXP Guides
 ## Notes: In-game leveling guides
 ## Notes-zhCN: TODO
 ## Author: RestedXP
-## Version: @project-version@
+## Version: v4.2.11
 ## OptionalDeps: Questie, unitscan
 ## SavedVariables: RXPData, RXPDB
 ## SavedVariablesPerCharacter: RXPCData, RXPCTrackingData, RXPCComms, RXPCSettings

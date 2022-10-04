@@ -3,11 +3,10 @@ RXPGuides.RegisterGuide([[
 #wotlk
 
 << DK
-#group RestedXP Death Knight Start
+#group Death Knight Start
 
-#next RestedXP Alliance 60-70\59-61 Hellfire Peninsula << Alliance
-#next RestedXP Horde 60-70\59-61 Hellfire Peninsula << Horde
-
+#next Alliance 60-70\59-61 Hellfire Peninsula << Alliance
+#next Horde 60-70\59-61 Hellfire Peninsula << Horde
 
 #defaultfor DK
 #name 55-58 The Scarlet Enclave

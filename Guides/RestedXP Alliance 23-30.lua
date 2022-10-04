@@ -4,7 +4,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 23-24 Wetlands
 #version 1
-#group RestedXP Alliance 20-32
+#group Alliance 20-32
 #next 24-27 Redridge/Duskwood
 #xprate <1.5
 
@@ -370,7 +370,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 24-27 Redridge/Duskwood
 #version 1
-#group RestedXP Alliance 20-32
+#group Alliance 20-32
 #next 27-30 Wetlands/Hillsbrad;28-30 Duskwood
 step << Warrior
     #sticky
@@ -1084,7 +1084,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 27-30 Wetlands/Hillsbrad
 #version 1
-#group RestedXP Alliance 20-32
+#group Alliance 20-32
 #next 30-32 Duskwood/STV
 #xprate <1.5
 
@@ -1546,7 +1546,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 30-32 Duskwood/STV
 #version 1
-#group RestedXP Alliance 20-32
+#group Alliance 20-32
 #next RestedXP Alliance 32-47\32-33 Shimmering Flats
 #xprate <1.5
 step << !Mage
@@ -2305,7 +2305,7 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 28-30 Duskwood
 #version 1
-#group RestedXP Alliance 20-32
+#group Alliance 20-32
 #next 30-32 Hillsbrad
 #xprate >1.3
 step
@@ -2963,7 +2963,7 @@ RXPGuides.RegisterGuide([[
 #wotlk
 << Alliance
 #version 1
-#group RestedXP Alliance 20-32
+#group Alliance 20-32
 #name 30-32 Hillsbrad
 #next RestedXP Alliance 32-47\32-33 Shimmering Flats
 #xprate >1.3

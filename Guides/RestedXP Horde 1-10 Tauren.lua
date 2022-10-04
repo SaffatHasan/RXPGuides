@@ -4,7 +4,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 1-10 Mulgore
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #defaultfor Tauren
 #next 10-20 Eversong Woods / Ghostlands << !Warrior !Shaman
 #next 10-13 Mulgore << Warrior/Shaman
@@ -909,7 +909,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 10-13 Mulgore
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #defaultfor Tauren
 #next 13-23 The Barrens
 step
