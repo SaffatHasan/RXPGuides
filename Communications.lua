@@ -1,11 +1,11 @@
-local _, addon = ...
+local addonName, addon = ...
 
-local fmt, mrand, smatch, sbyte, tostr = string.format, math.random,
-                                         string.match, string.byte, tostring
+local fmt, mrand, smatch, sbyte = string.format, math.random, string.match,
+                                  string.byte
 
 local GetNumGroupMembers, SendChatMessage, GetTime, UnitLevel, UnitClass,
-      UnitXP, UnitXPMax, pcall = GetNumGroupMembers, SendChatMessage, GetTime,
-                                 UnitLevel, UnitClass, UnitXP, UnitXPMax, pcall
+      UnitXP, UnitXPMax = GetNumGroupMembers, SendChatMessage, GetTime,
+                          UnitLevel, UnitClass, UnitXP, UnitXPMax
 
 local _G = _G
 
@@ -105,7 +105,7 @@ function addon.comms:PLAYER_LEVEL_UP(_, level)
                                                  level - 1, level,
                                                  addon.tracker:PrettyPrintTime(s))
                     announceLevelUp(msg)
-                elseif addon.settings.db.profile.debug then
+                elseif addon.release == 'Development' then
                     self.PrettyPrint("Invalid .started or .finished %d", level)
                 end
             end)
@@ -230,9 +230,7 @@ function addon.comms:IsNewRelease(theirRelease, name)
     if theirRelease == 'Development' then
         return false
     elseif addon.release == 'Development' then
-        if addon.settings.db.profile.debug then
-            self.PrettyPrint("%s:theirRelease = %s", name, theirRelease)
-        end
+        self.PrettyPrint("%s:theirRelease = %s", name, theirRelease)
         return false
     end
 
@@ -339,8 +337,8 @@ function addon.comms:AnnounceStepEvent(event, data)
         if addon.settings.db.profile.enableCompleteStepAnnouncements and
             GetNumGroupMembers() > 0 then
             SendChatMessage(msg, "PARTY", nil)
-        elseif addon.settings.db.profile.debug then
-            self.PrettyPrint(msg)
+        elseif addon.release == 'Development' then
+            print(msg)
         end
 
         guideAnnouncements.complete[data.title] = UnitLevel("Player")
@@ -360,8 +358,8 @@ function addon.comms:AnnounceStepEvent(event, data)
         if addon.settings.db.profile.enableCollectAnnouncements and
             GetNumGroupMembers() > 0 then
             SendChatMessage(msg, "PARTY", nil)
-        elseif addon.settings.db.profile.debug then
-            self.PrettyPrint(msg)
+        elseif addon.release == 'Development' then
+            print(msg)
         end
 
         guideAnnouncements.collect[data.title] = UnitLevel("Player")
@@ -376,8 +374,8 @@ function addon.comms:AnnounceStepEvent(event, data)
         if addon.settings.db.profile.enableFlyStepAnnouncements and
             GetNumGroupMembers() > 0 then
             SendChatMessage(msg, "PARTY", nil)
-        elseif addon.settings.db.profile.debug then
-            self.PrettyPrint(msg)
+        elseif addon.release == 'Development' then
+            print(msg)
         end
     else
         error("Unhandled step event announce: (" .. event .. ")")
@@ -386,11 +384,11 @@ function addon.comms:AnnounceStepEvent(event, data)
 end
 
 function addon.comms.BuildNotification(msg, ...)
-    return fmt("{rt3} %s: %s", addon.title, fmt(msg, ...))
+    return fmt("{rt3} %s: %s", addonName, fmt(msg, ...))
 end
 
 function addon.comms.PrettyPrint(msg, ...)
-    print(fmt("%s%s: %s", addon.title,
+    print(fmt("%s%s: %s", addonName,
               addon.settings.db.profile.debug and ' (Debug)' or '',
               fmt(msg, ...)))
 end
@@ -445,14 +443,9 @@ function addon.comms.OpenBugReport(stepNumber)
                         stepData = fmt("%s\n  goto = %.2f / %.2f", stepData,
                                        e.x, e.y)
                     end
-
-                    if e.targets then
-                        stepData = fmt("%s\n  targets = %s", stepData,
-                                       strjoin(', ', unpack(e.targets)))
-                    end
                 end
             else
-                stepData = fmt("%s\nNo active step elements", stepData, step)
+                stepData = fmt("%s\nUnknown table", stepData, step)
             end
         elseif type(step) == "string" then
             stepData = fmt("%s\n%s", stepData, step)
@@ -461,17 +454,6 @@ function addon.comms.OpenBugReport(stepNumber)
     else
         stepData = "N/A"
     end
-
-    local af = addon.arrowFrame
-    local arrowData = af and fmt(
-                          "  Shown: %s\n  hideArrow: %s\n  disableArrow: %s\n  Distance: %s\n  Instance: %s\n  Zone: %s\n  Coordinates: wy (%.02f) wx (%.02f)\n",
-                          tostr(af:IsShown()), tostr(addon.hideArrow),
-                          tostr(addon.settings.db.profile.disableArrow),
-                          af.distance or -1,
-                          af.element and af.element.instance or 'N/A',
-                          af.element and af.element.zone or 'N/A',
-                          af.element and af.element.wy or 0,
-                          af.element and af.element.wx or 0) or 'N/A'
 
     local content = fmt([[%s
 
@@ -489,15 +471,11 @@ Client Version: %s
 
 Current Step data
 %s
-
-Arrow data
-%s
 ```
 ]], L("Describe your issue:"), L("Do not edit below this line"),
                         character or "Error", zone or "Error", guide or "Error",
-                        addon.release, addon.settings.db.profile.xprate,
-                        GetLocale(), select(1, GetBuildInfo()), stepData,
-                        arrowData)
+                        addon.release, RXPCData.xprate, GetLocale(),
+                        select(1, GetBuildInfo()), stepData)
 
     local f = AceGUI:Create("Frame")
 
@@ -530,7 +508,7 @@ Arrow data
 end
 
 function addon.comms.OpenBrandedExport(title, description, content, width,
-                                       height, acceptCallback)
+                                       height)
 
     local f = AceGUI:Create("Frame") -- TODO use AceGUI:Create("Window")
     f:Hide()
@@ -547,36 +525,27 @@ function addon.comms.OpenBrandedExport(title, description, content, width,
     editbox:SetLabel(description)
     editbox:SetFullWidth(true)
     editbox:SetFullHeight(true)
-    editbox:SetMaxLetters(0)
     editbox:SetText(content)
-
-    if acceptCallback then
-        editbox:SetCallback("OnEnterPressed", function(_, _, text)
-            local success = pcall(acceptCallback, text)
-            if success then editbox:SetText("") end
-        end)
-    else
-        -- Fake read-only
-        editbox:DisableButton(true)
-        editbox:SetCallback("OnTextChanged",
-                            function() editbox:SetText(content) end)
-
-        editbox.editBox:SetScript("OnMouseUp", function()
-            editbox:HighlightText()
-
-            -- Only highlight text on first enter
-            editbox.editBox:SetScript("OnMouseUp", nil)
-        end)
-    end
-
+    editbox:DisableButton(true)
     f:AddChild(editbox)
+
+    editbox:SetCallback("OnTextChanged", function() editbox:SetText(content) end)
+    editbox:SetCallback("OnEnterPressed",
+                        function() editbox.editbox:ClearFocus() end)
+    editbox.editBox:SetScript("OnMouseUp", function()
+        editbox:HighlightText()
+
+        -- Only highlight text on first enter
+        editbox.editBox:SetScript("OnMouseUp", nil)
+    end)
 
     local frameWidth = max(width or 0, f.titletext:GetWidth() * 1.5,
                            editbox.label:GetStringWidth() * 1.1)
 
     f:SetWidth(frameWidth)
     f:SetHeight(height or 100)
-    addon.SetResizeBounds(f.frame, frameWidth, height or 20)
+    f.frame:SetMinResize(frameWidth, height or 20)
+
     _G["RESTEDXP_BRANDED_EXPORT"] = f.frame
     tinsert(_G.UISpecialFrames, "RESTEDXP_BRANDED_EXPORT")
 

@@ -3,11 +3,10 @@ RXPGuides.RegisterGuide([[
 #wotlk
 
 << DK
-#group RestedXP Death Knight Start
+#group Death Knight Start
 
-#next RestedXP Alliance 60-70\59-61 Hellfire Peninsula << Alliance
-#next RestedXP Horde 60-70\59-61 Hellfire Peninsula << Horde
-
+#next Alliance 60-70\59-61 Hellfire Peninsula << Alliance
+#next Horde 60-70\59-61 Hellfire Peninsula << Horde
 
 #defaultfor DK
 #name 55-58 The Scarlet Enclave
@@ -459,7 +458,7 @@ step << Tauren
     .complete 12739,1 -- Malar Bravehorn (1)
 step << Human
     .goto ScarletEnclave,53.6,83.6
-	>>Stand infront of Ellen and wait for the RP to finish. Kill her after
+	>>Stand infront of Ellen and wait for the RP to finish. Kill him after
     .complete 12742,1 --Ellen Stanbridge  (1)
 step << NightElf
     .goto ScarletEnclave,54.2,83.8
@@ -626,8 +625,7 @@ step
     .goto ScarletEnclave,50.7,33.7
 	>>Return to Darion Mograine
     .turnin 13166 >>Turn in The Battle For The Ebon Hold
-    .accept 13188 >>Accept Where Kings Walk << Alliance    
-    .accept 13189 >>Accept Warchief's Blessing << Horde
+    .accept 13189 >>Accept Warchief's Blessing
 step << Horde
     .goto ScarletEnclave,52.1,35.0
 	.zone Durotar >>Take the portal to Orgrimmar

@@ -1,4 +1,5 @@
 RXPGuides.RegisterGuide([[
+#tbc
 #wotlk
 #group +Profession leveling
 #subgroup Herbalism
@@ -269,12 +270,12 @@ step
 ]])
 
 RXPGuides.RegisterGuide([[
+#tbc
 #wotlk
 #group +Profession leveling
 #subgroup Herbalism
 << Alliance
 #name 1-375 Alliance
-
 
 step << Mage
     #completewith next

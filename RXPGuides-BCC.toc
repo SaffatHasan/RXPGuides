@@ -1,4 +1,4 @@
-## Interface: 30400
+## Interface: 20504
 ## Title: RXP Guides
 ## Notes: In-game leveling guides
 ## Notes-zhCN: TODO
@@ -23,7 +23,7 @@ LevelingTracker.lua
 Timers.lua
 Communications.lua
 
-DB/wotlk.xml
+DB/tbc.xml
 
 map.lua
 functions.lua

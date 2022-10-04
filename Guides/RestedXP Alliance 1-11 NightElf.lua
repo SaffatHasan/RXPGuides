@@ -4,33 +4,31 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 1-6 Shadowglen
 #version 1
-#group RestedXP Alliance 1-20
+#group Alliance 1-20
 #defaultfor NightElf
 #next 6-11 Teldrassil
 step << !NightElf
+--    .hs >> 1234
     #sticky
     #completewith next
     +You have selected a guide meant for Night Elves. You should choose the same starter zone that you start in
 step
     .goto Teldrassil,58.69,44.27 << tbc
     .goto Teldrassil,58.62,44.71 << wotlk
-    >>Talk to Ilthalaine
     .accept 456 >> Accept The Balance of Nature
 step
     #sticky
     #label balance1
     .goto Teldrassil,62.0,42.6
-    >>Kill Young Nightsabers and Thistle Boars
-    .complete 456,1 --Kill Young Nightsaber (x4 WOTLK, x7 TBC)
+    .complete 456,1 --Kill Young Nightsaber (x7)
     .complete 456,2 --Kill Young Thistle Boar (x4)
 step
-    .xp 2 >> Grind to level 2
+    .xp 2
 step
-    >>Talk to Melithar and Dirania
     .accept 458 >> Accept The Woodland Protector
-	.goto Teldrassil,59.93,42.48,-1
+	.goto Teldrassil,59.9,42.5
     .accept 4495 >> Accept A Good Friend
-    .goto Teldrassil,60.90,41.96,-1
+    .goto Teldrassil,60.9,42.0
 step << Hunter
     #xprate <1.5
     .goto Teldrassil,59.8,34.1
@@ -40,21 +38,19 @@ step << Hunter
     .goto Teldrassil,59.8,34.1
     .xp 4-755 >> Grind until you are 755xp away from level 4 (645/1400)
 step << Hunter
-    .goto Teldrassil,54.59,32.99
-    >>Talk to Iverron
+    .goto Teldrassil,54.6,33.0
     .turnin 4495 >> Turn in A Good Friend
     .accept 3519 >> Accept A Friend in Need
 step << Hunter
+    #sticky
     #completewith next
-    .hs >> Hearth to Shadowglen
+    .hs >> Hearth back to the starting zone
 step << Hunter
-    .goto Teldrassil,57.71,45.06
-    >>Talk to Tarindrella
+    .goto Teldrassil,57.9,45.1
     .turnin 458 >> Turn in The Woodland Protector
     .accept 459 >> Accept The Woodland Protector
 step
     #requires balance1
-    >>Talk to Ilthalaine
     .goto Teldrassil,58.69,44.27 << tbc
     .goto Teldrassil,58.62,44.71 << wotlk
     .turnin 456 >> Turn in The Balance of Nature
@@ -65,139 +61,90 @@ step
 	.accept 3119 >> Accept Hallowed Sigil << Priest
 	.accept 3120 >> Accept Verdant Sigil << Druid
 step << Warrior
-    #completewith next
-    .goto Teldrassil,59.31,41.09
-	.vendor >> Go inside. Vendor trash
+    .goto Teldrassil,59.3,41.1
+	.vendor >> Go inside and vendor trash
 step << Warrior
-    #sticky
-    #label SimpleSigil
-	.goto Teldrassil,59.21,40.04,20,0
-	.goto Teldrassil,59.29,39.08,20,0
-	.goto Teldrassil,59.63,38.45
-    >> Run up the ramp behind the vendors
+	.goto Teldrassil,59.6,38.4
 	.turnin 3116 >> Turn in Simple Sigil
-step << Warrior
-	.goto Teldrassil,59.63,38.45
-	.trainer >>Train your class spells
+	.trainer >> Run up the stairs behind the vendors. Train Battle Shout from the trainer
 step << !Hunter
-    #requires SimpleSigil << Warrior
     .goto Teldrassil,59.8,34.1
-    >>Kill Mangy Nightsabers and Thistle Boars
-    .complete 457,1 --Kill Mangy Nightsaber (x5 WOTLK, x7 TBC)
-    .complete 457,2 --Kill Thistle Boar (x5 WOTLK, x7 TBC)
+    .complete 457,1 --Kill Mangy Nightsaber (x7)
+    .complete 457,2 --Kill Thistle Boar (x7)
 step << !Hunter
-    .goto Teldrassil,54.59,32.99
-    >>Talk to Iverron
+    .goto Teldrassil,54.6,33.0
     .turnin 4495 >> Turn in A Good Friend
     .accept 3519 >> Accept A Friend in Need
 step << !Hunter
+    #sticky
     #completewith next
-    .hs >> Hearth to Shadowglen
+    .hs >> Hearth back to the starting zone
 step << !Hunter
-    .goto Teldrassil,57.71,45.06
-    >>Talk to Tarindrella
+    .goto Teldrassil,57.9,45.1
     .turnin 458 >> Turn in The Woodland Protector
     .accept 459 >> Accept The Woodland Protector
 step << !Hunter
-    .goto Teldrassil,58.69,44.27 << tbc
-    .goto Teldrassil,58.62,44.71 << wotlk
-    >>Talk to Ilthalaine
+    .goto Teldrassil,58.6,44.3
     .turnin 457 >> Turn in The Balance of Nature
 step
-    .goto Teldrassil,60.90,41.96
-    >>Talk to Dirania
+    .goto Teldrassil,60.9,42.0
     .turnin 3519 >> Turn in A Friend in Need
     .accept 3521 >> Accept Iverron's Antidote
 step << Hunter
     #completewith htraining
-    .goto Teldrassil,59.31,41.09
-	.vendor >> Go inside. Vendor trash and buy 3 stacks of arrows
+    .goto Teldrassil,59.3,41.1
+	.vendor >> Go inside, vendor trash and buy 3 stacks of arrows
 step
-    .goto Teldrassil,57.81,41.65
-    >>Talk to Gilshalan
+    .goto Teldrassil,57.8,41.7
     .accept 916 >> Accept Webwood Venom
 step << Hunter
     #xprate <1.5
-    .goto Teldrassil,56.02,41.82
-    .xp 4-40 >> Grind to 1360+/1400xp
+    .xp 4-40
 step << Hunter
     #xprate >1.3
-    .goto Teldrassil,56.02,41.82
-    .xp 4-50 >> Grind to 1350+/1400xp
+    .xp 4-50
 step << Hunter
-    #sticky
-    #label EtchedSigil
-    .goto Teldrassil,57.81,40.93,40,0
-    .goto Teldrassil,58.64,38.74,30,0
-    .goto Teldrassil,58.66,40.45
-    >>Climb the big tree until you get to the small building
-    .turnin 3117 >> Turn in Etched Sigil
-step << Hunter
-    .goto Teldrassil,58.66,40.45
+    .goto Teldrassil,58.6,40.4
+    >>Climb the big tree and talk to the Hunter trainer
     .train 1978 >>Train Serpent Sting
+    .turnin 3117 >> Turn in Etched Sigil
 step
-    #requires EtchedSigil << Hunter
-    .loop 20,Teldrassil,56.98,39.08,56.51,38.92,56.55,38.40,56.80,38.15,56.94,36.95,57.18,37.12,57.49,36.04,58.07,35.60,58.21,36.21,58.43,36.46,58.94,37.35,58.81,37.59,58.67,38.17,58.05,38.44,56.98,39.08
-	>>Loot the yellow flowers around the lake
+    .goto Teldrassil,58.1,36.7
+	>> Loot the yellow flowers around the lake
     .complete 3521,2 --Collect Moonpetal Lily (x4)
 step
-    .goto Teldrassil,54.25,39.00,40,0
-    .goto Teldrassil,54.61,44.03,40,0
-    .goto Teldrassil,56.00,45.91
-	>> Kill Grellkins. Loot them for Mushrooms and Moss. You can also loot the Mushroom objects nearby
-    .complete 3521,1 --Collect Hyacinth Mushroom (x7)
-    .complete 459,1 --Collect Fel Moss (x8)
-step
-    #completewith next
-    .goto Teldrassil,56.80,31.49,30 >>Go inside the cave
-step
-    .goto Teldrassil,56.48,29.38,40,0
-    .goto Teldrassil,56.76,25.65
+    .goto Teldrassil,56.8,31.7
 	>>Kill Spiders. Loot them for Ichor and Sacs
     .complete 3521,3 --Collect Webwood Ichor (x1)
     .complete 916,1 --Collect Webwood Venom Sac (x10)
 step
-    #completewith next
-    .deathskip >> Die and respawn at the Spirit Healer
+    .goto Teldrassil,55.0,43.7
+	>> Kill Grellkins. Loot them for Mushrooms and Moss
+    .complete 3521,1 --Collect Hyacinth Mushroom (x7)
+    .complete 459,1 --Collect Fel Moss (x8)
 step
-    .goto Teldrassil,57.71,45.06
-    >>Talk to Tarindrella
+    .goto Teldrassil,57.8,45.1
     .turnin 459 >> Turn in The Woodland Protector
 step
-    .goto Teldrassil,60.90,41.96
-    >>Talk to Dirania
+    .goto Teldrassil,60.9,42.0
     .turnin 3521 >> Turn in Iverron's Antidote
     .accept 3522 >> Accept Iverron's Antidote
 step << !Priest
-    #completewith next
-    .goto Teldrassil,59.31,41.09
+    .goto Teldrassil,59.3,41.1
 	.vendor >> Go inside and vendor trash << !Hunter
-	.vendor >> Go inside and vendor trash. Make sure you have at least 3-4 stacks of arrows << Hunter
+	.vendor >> Go inside and vendor trash. Make sure you have at least 3 or 4 stacks of arrows for the next segment << Hunter
 step << Warrior
-	.goto Teldrassil,59.21,40.04,20,0
-	.goto Teldrassil,59.29,39.08,20,0
-	.goto Teldrassil,59.63,38.45
-    >> Run up the ramp behind the vendors
-	.trainer >> Train your class spells
+    .goto Teldrassil,59.6,38.4
+	.trainer >> Train your level 4 spells
 step << Priest
-    #completewith next
-    .goto Teldrassil,59.96,41.85,20,0
-    .goto Teldrassil,59.69,41.22,20,0
-    .goto Teldrassil,59.46,41.05
-	.vendor >> Go inside. Go upstairs and vendor trash
+    .goto Teldrassil,59.5,41.1
+	.vendor >> Go inside, then upstairs and vendor trash
 step << Priest
-    #sticky
-    #label HallowedSigil
-	.goto Teldrassil,59.17,40.44
-    >>Go upstairs
+	.goto Teldrassil,59.2,40.4
 	.turnin 3119 >> Turn in Hallowed Sigil
-step << Priest
-	.goto Teldrassil,59.17,40.44
-	.trainer >> Train your class spells
+	.trainer >> Train your level 4 spells
 step
-    #requires HallowedSigil << Priest
-    .goto Teldrassil,57.81,41.65
-    >>Talk to Gilshalan
+    .goto Teldrassil,57.8,41.7
     .turnin 916 >> Turn in Webwood Venom
     .accept 917 >> Accept Webwood Egg
 step << Druid
@@ -206,75 +153,62 @@ step << Druid
 	.turnin 3120 >> Turn in Verdant Sigil
 	.train 8921 >>Train Moonfire
 step
-    .goto Teldrassil,54.59,32.99
-    >>Talk to Iverron
+    .goto Teldrassil,54.6,33.0
     .turnin 3522 >> Turn in Iverron's Antidote
 step
-    #completewith next
-    .goto Teldrassil,56.80,31.49,30 >>Go inside the cave
-step
-    .goto Teldrassil,56.80,26.45
-	>>Loot a Webwood Egg at the back of the cave
+    .goto Teldrassil,57.0,26.4
+	>>Loot a spider egg at the back of the spider cave
     .complete 917,1 --Collect Webwood Egg (x1)
 step
+	#softcore
 	#completewith next
-	.deathskip >>Die and respawn at the Spirit Healer, or do the logout skip.
-    .link https://www.youtube.com/watch?v=TTZZT3jpv1s >> CLICK HERE for reference on how to do the logout skip
+	.goto Teldrassil,57.8,41.7,150    >>Die on purpose and respawn at the graveyard
 step
-    .goto Teldrassil,57.81,41.65
-    >>Talk to Gilshalan
+	#hardcore
+	#completewith next
+	+Logout skip on the ledge behind the eggs. Move your character until it looks like they're floating, then log out, and back in.
+	>>If you fall down, just run out the cave normally to the quest turn in
+	.link https://www.youtube.com/watch?v=TTZZT3jpv1s >> CLICK HERE for reference
+step
+	.goto Teldrassil,57.8,41.7
     .turnin 917 >> Turn in Webwood Egg
     .accept 920 >> Accept Tenaron's Summons
 step
-    .goto Teldrassil,57.81,40.93,40,0
-    .goto Teldrassil,58.64,38.74,30,0
-    .goto Teldrassil,58.48,40.79,30,0
-    .goto Teldrassil,59.34,40.09,30,0
-    .goto Teldrassil,59.06,39.44
-    >>Take the ramp upwards to climb the big tree. Talk to Tenaron at the top
+    .goto Teldrassil,59.1,39.4
+    >>Take the ramp upwards and climb the big tree
     .turnin 920 >> Turn in Tenaron's Summons
     .accept 921 >> Accept Crown of the Earth
 step
     #sticky
     #label vial1
-    .goto Teldrassil,59.92,33.13
-	.use 5185 >>Use the Crystal Phial in your bags at the Moonwell
+    .goto Teldrassil,59.9,33.0
+	>>Fill the empty vial at the moonwell
     .complete 921,1 --Collect Filled Crystal Phial (x1)
 step << Hunter
     .goto Teldrassil,59.8,34.1
-    >>Kill Mangy Nightsabers and Thistle Boars
     .complete 457,1 --Kill Mangy Nightsaber (x7)
     .complete 457,2 --Kill Thistle Boar (x7)
 step
     #requires vial1
+    #sticky
     #completewith next
-    .deathskip >>Die and respawn at the Spirit Healer, or run back to town
+    .deathskip >> Die and respawn at the graveyard
 step << Hunter
     #requires vial1
-    .goto Teldrassil,58.69,44.27 << tbc
-    .goto Teldrassil,58.62,44.71 << wotlk
-    >>Talk to Ilthalaine
+    .goto Teldrassil,58.6,44.3
     .turnin 457 >> Turn in The Balance of Nature
 step << Priest
     #requires vial1
-    .goto Teldrassil,59.96,41.85,20,0
-    .goto Teldrassil,59.69,41.22,20,0
-	.goto Teldrassil,59.17,40.44
-    >>Go inside. Go upstairs
+    .goto Teldrassil,59.2,40.5
     .accept 5622 >> Accept In Favor of Elune
 step
     #requires vial1
-    .goto Teldrassil,57.81,40.93,40,0
-    .goto Teldrassil,58.64,38.74,30,0
-    .goto Teldrassil,58.48,40.79,30,0
-    .goto Teldrassil,59.34,40.09,30,0
-    .goto Teldrassil,59.06,39.44
-    >>Take the ramp upwards to climb the big tree. Talk to Tenaron at the top
+    .goto Teldrassil,59.1,39.4
+	>>Take the ramp upwards and climb the big tree
     .turnin 921 >> Turn in Crown of the Earth
     .accept 928 >> Accept Crown of the Earth
 step
-    .goto Teldrassil,61.16,47.64
-    >>Talk to Porthannius
+    .goto Teldrassil,61.2,47.6
     .accept 2159 >> Accept Dolanaar Delivery
 ]])
 
@@ -284,14 +218,9 @@ RXPGuides.RegisterGuide([[
 << Alliance
 #name 6-11 Teldrassil
 #version 1
-#group RestedXP Alliance 1-20
+#group Alliance 1-20
 #defaultfor NightElf
 #next 11-14 Darkshore
-step
-    #title Shopping List
-    #completewith next
-        >>If you want to use the Auction House to speed up your leveling, mail yourself 7 Small Spider Legs.
-    .collect 5465,7,4161,1 --Collect Small Spider Leg (x7)
 step
     .goto Teldrassil,60.5,56.3
     .accept 488 >> Accept Zenn's Bidding
@@ -411,7 +340,7 @@ step
 step
     #label zenn
     .goto Teldrassil,63.4,58.1
-	.use 5619 >>Fill the empty vial at the moonwell
+	>>Fill the empty vial at the moonwell
     .complete 929,1 --Collect Filled Jade Phial (x1)
 step
     .goto Teldrassil,63.1,61.0
@@ -496,7 +425,7 @@ step
 	.goto Teldrassil,69.2,53.3
 	>>Kill Ferocitas. Loot the Necklace
     .collect 8049,1,2459,0x2,1 --Gnarlpine Necklace (1)
-    .use 8049 >>Right Click the Necklace to loot the Jewel
+    >>Right Click the Necklace to loot the Jewel
     .complete 2459,2 --Collect Tallonkai's Jewel (x1)
 step
     #requires mystics
@@ -534,7 +463,7 @@ step
 	#xprate <1.5
 	#label spiderLegs
 	.goto Teldrassil,42.36,67.26
-	.use 5621 >>Fill the empty vial at the moonwell
+	>>Fill the empty vial at the moonwell
 	.complete 933,1
 step
 	#xprate <1.5
@@ -590,7 +519,7 @@ step
 step
 	#xprate <1.5
     .goto Teldrassil,38.4,34.1
-	.use 18152 >>Fill the empty phial at the moonwell
+	>>Fill the empty phial at the moonwell
     .complete 7383,1 --Collect Filled Amethyst Phial (x1)
 step
 	#xprate <1.5
@@ -833,9 +762,6 @@ step << Rogue
     .goto Teldrassil,44.0,54.6
     .deathskip >>Once you get past the furbolg area, die on purpose and respawn at the Darnassus graveyard
 step << Rogue
-    .goto Darnassus,67.2,15.8
-    .home >> Set your Hearthstone to Darnasus 
-step << Rogue
     .goto Darnassus,64.6,53.0
     .collect 25873,1 >> Purchase a Keen Throwing Knife from Ellandrieth
 step << Rogue
@@ -845,11 +771,8 @@ step << Rogue
 step << Rogue
     .goto Darnassus,34.7,9.0
     >>Climb to the top of the tree house
-    .turnin -935 >> Turn in Crown of the Earth
+    .turnin 935 >> Turn in Crown of the Earth
     .turnin 940 >> Turn in Teldrassil
-step << Rogue
-    #xprate <1.5
-    .goto Darnassus,34.7,9.0
     .accept 952 >> Accept Grove of the Ancients
 step << Rogue
     .goto Darnassus,36.8,21.8
@@ -864,7 +787,7 @@ step << Hunter
 	.goto Teldrassil,44.2,39.8,0
 	.goto Teldrassil,45.6,31.4,0
 	.goto Teldrassil,37.6,28.8,0
-    .train 2981 >> Tame a Strigid Hunter
+    .train 2981 >> Tame a Strigid Hunter and learn claw rank 2
 step
     .goto Teldrassil,43.1,32.9
     >>Exit Darnassus << Rogue
@@ -946,15 +869,9 @@ step << Druid
     .turnin 5931 >> Turn in Back to Darnassus
     .accept 6001 >> Accept Body and Heart
 step
-    .isOnQuest 935
     .goto Darnassus,34.8,9.2
     .turnin 935 >> Turn in Crown of the Earth
-step
-    .goto Darnassus,34.8,9.2
     .turnin 940 >> Turn in Teldrassil << Hunter
-step
-    #xprate <1.5
-    .goto Darnassus,34.8,9.2
     .accept 952 >> Accept Grove of the Ancients
 step << Hunter
     .goto Darnassus,40.3,8.8

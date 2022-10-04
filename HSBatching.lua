@@ -1,5 +1,3 @@
-local _, addon = ...
-
 -- Allows you to set your hearthstone as you teleport away to your previous location at the end of the hearthstone cast.
 -- Only works if the binding confirmation and the HS spell cast are processed in the same batch (<10ms as of patch 1.14)
 local HSframe = CreateFrame("Frame");
@@ -18,7 +16,7 @@ end
 
 local function StartHSTimer()
     if HSstart == 0 then
-        batchingWindow = addon.settings.db.profile.batchSize / 1e3
+        batchingWindow = RXPData.batchSize / 1e3
         currentFPS = GetCVar("maxfps")
         SetCVar("maxfps", 0)
         HSstart = GetTime()

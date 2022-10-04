@@ -4,14 +4,14 @@ RXPGuides.RegisterGuide([[
 << Horde !Warrior !Shaman
 #name 20-23 Stonetalon / The Barrens
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #next 23-27 Hillsbrad / Ashenvale
 step << wotlk
     #completewith next
     +If you have access to gold on this server, mail yourself gold for mount training soon!
 step
     .zone Orgrimmar >> Run into Orgrimmar
-step << !Troll !Orc
+step
     >>Go to the top of the tower
     .goto Orgrimmar,45.1,63.9
     .fp Orgrimmar >> Get the Orgrimmar flight path
@@ -90,7 +90,7 @@ step << Rogue
 step
     #xprate <1.5
     .maxlevel 21
-    >>Run to the Crossroads
+    >>Run to the Crossroads and accept quests
     .accept 870 >>Accept The Forgotten Pools
     .goto The Barrens,52.3,31.9
 step
@@ -135,7 +135,7 @@ step
     .goto The Barrens,45.2,23.3,40,0
     .goto The Barrens,45.2,22.0,40,0
     .goto The Barrens,44.6,22.5,40,0
-    .goto The Barrens,45.0,22.7
+    .goto The Barrens,43.9,24.4
     .complete 848,1 --Collect Fungal Spores (x4)
     .isOnQuest 848
 step
@@ -143,7 +143,7 @@ step
     .goto The Barrens,42.9,23.5
     .complete 850,1 --Collect Kodobane's Head (x1)
 	.unitscan Barak Kodobane
-    .isOnQuest 850
+    .isOnQuest 859
 step
     #sticky
     #completewith next
@@ -338,7 +338,8 @@ step
     #completewith Zamah
     +You have 45 minutes to complete the Apothecary quest so keep an eye on the timer. Skip the quest if you fail it
 step
-    #completewith next
+    #sticky
+    #completewith Horns
     >>Kill & Loot any level 16+ Raptors you see
     .complete 865,1 --Collect Intact Raptor Horn (x5)
     .isOnQuest 865
@@ -646,14 +647,11 @@ step
     .turnin 850 >> Turn in Kolkar Leaders
     .isOnQuest 850
 step
-    .isQuestComplete 1062
-    >> Head towards Stonetalon. Talk to Seereth
+    .isOnQuest 1062
+    >> Head towards Stonetalon
     .goto The Barrens,35.3,27.8
     .turnin 1062 >> Turn in Goblin Invaders
-step
-    .goto The Barrens,35.3,27.8
     .accept 1063 >> Accept The Elder Crone
-    .isQuestTurnedIn 1062
 step
     .isOnQuest 6523
     >> Head towards Stonetalon
@@ -704,6 +702,9 @@ step
     .goto Stonetalon Mountains,47.5,58.3
     .turnin 6401 >> Turn in Kaya's Alive
     .isOnQuest 6401
+step
+    .goto Stonetalon Mountains,45.1,59.8
+    .fp Sun Rock >>Get the Sun Rock Retreat Flight Path
 step
     .isOnQuest 1095
     >> Head back to the goblin hut behind the hill
@@ -818,7 +819,7 @@ step
     #xprate <1.5
     .goto Ashenvale,11.6,34.3
     .turnin 6563 >> Turn in The Essence of Aku'Mai
-    .isQuestComplete 6563
+    .isQuestComplete 6553
 step
     #xprate <1.5
     #sticky
@@ -1065,11 +1066,11 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 23-27 Hillsbrad / Ashenvale
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #next 27-30 Lower Barrens / Thousand Needles
 
 step << !Shaman
-    #completewith Zeppelin
+    #completewith next
     .goto Orgrimmar,54.1,68.5
     .home >> Set your Hearthstone to Orgrimmar
 step << Orc !Warlock wotlk
@@ -1081,7 +1082,6 @@ step << Troll !Warlock wotlk
 	.goto Durotar,55.2,75.5
 	.train 533 >> Head to Sen'jin Village in Durotar Train riding and purchase your mount
 step
-    #label Zeppelin
 	>>Go to the Zeppelin tower. Take the zeppelin to Tirisfal
 	.goto Durotar,50.8,13.8
 	.zone Tirisfal Glades >>Arrive in Tirisfal Glades
@@ -1137,11 +1137,8 @@ step << Shaman
     >>Fill the Waterskin at the well
     .complete 1536,1 --Filled Red Waterskin (1)
 step
-    .goto Hillsbrad Foothills,61.5,19.2
+    .goto Hillsbrad Foothills,61.50,19.20
     .turnin 493 >> Turn in Journey to Hillsbrad Foothills
-step
-    .isOnQuest 1065
-    .goto Hillsbrad Foothills,61.5,19.2
     .turnin 1065 >> Turn in Journey to Tarren Mill
     .accept 1066 >> Accept Blood of Innocents
 step
@@ -1249,6 +1246,23 @@ step
 	.goto Hillsbrad Foothills,63.5,33.0
     .complete 496,2 --Collect Creeper Ichor (x1) 
 step
+	#requires syndicateq
+    .goto Hillsbrad Foothills,61.5,19.1
+    .turnin 1066 >> Turn in Blood of Innocents
+step
+    .goto Hillsbrad Foothills,62.38,20.52
+	.turnin 549 >> Turn in WANTED: Syndicate Personnel
+step
+    .goto Hillsbrad Foothills,63.2,20.7
+    .turnin 498 >> Turn in The Rescue
+step << Hunter
+	#completewith next
+	.goto Hillsbrad Foothills,62.56,19.91
+	.vendor >> Buy arrows until your quiver is full
+step
+    .goto Hillsbrad Foothills,62.79,19.05
+	.vendor 2388 >> Go inside the Inn. Vendor trash, and buy Food/Water from Shay	
+step
 	#completewith next
     >>Kill Bears and Mountain Lions en route to the Fields. Loot them for Tongues and Blood
 	.complete 496,1 --Collect Gray Bear Tongue (x10)
@@ -1296,23 +1310,6 @@ step
 	.complete 496,1 --Collect Gray Bear Tongue (x10)
 	.complete 501,1 --Collect Mountain Lion Blood (x10)
 --N Claw rank 3?
-step
-	#requires syndicateq
-    .goto Hillsbrad Foothills,61.5,19.1
-    .turnin 1066 >> Turn in Blood of Innocents
-step
-    .goto Hillsbrad Foothills,62.38,20.52
-	.turnin 549 >> Turn in WANTED: Syndicate Personnel
-step
-    .goto Hillsbrad Foothills,63.2,20.7
-    .turnin 498 >> Turn in The Rescue
-step << Hunter
-	#completewith next
-	.goto Hillsbrad Foothills,62.56,19.91
-	.vendor >> Buy arrows until your quiver is full
-step
-    .goto Hillsbrad Foothills,62.79,19.05
-	.vendor 2388 >> Go inside the Inn. Vendor trash, and buy Food/Water from Shay	
 step
 	#requires Farmers
 	>>Return to Tarren Mill
@@ -1548,7 +1545,6 @@ step
 step
     .goto Ashenvale,68.3,75.3
     .accept 6544 >> Accept Torek's Assault
-    >> If he is not there he can take a few minutes to respawn
 step
     >>Follow Torek. This quest can get a bit hard. It will spawn a wave enemies inside the building. You may need to skip.
     >> Run as far into the building as you can. Have Torek tank some of the mobs. Abandon this quest if you die. 
@@ -1840,6 +1836,7 @@ step << Rogue
 	.trainer >> Go and train your class spells
 step
     #label flytimebabyyy
+step
 	.goto Orgrimmar,45.2,63.8,-1
     .goto Ashenvale,73.2,61.6,-1
     .fly Thunder Bluff >> Fly to Thunder Bluff
@@ -1851,7 +1848,7 @@ RXPGuides.RegisterGuide([[
 << Horde
 #name 27-30 Lower Barrens / Thousand Needles
 #version 1
-#group RestedXP Horde 1-30
+#group Horde 1-30
 #next RestedXP Horde 30-45\30-34 Hillsbrad / Arathi / Shimmering Flats
 
 step
@@ -1871,27 +1868,27 @@ step << Druid
 	.trainer >> Go and train your class spells
 	.turnin 31 >>Turn in Aquatic Form << tbc
 step << Hunter
-	#completewith hearth
+	#completewith next
     .goto Thunder Bluff,59.1,86.9
 	.trainer >> Go and train your class spells
 step << Hunter
-	#completewith hearth
+	#completewith next
     .goto Thunder Bluff,54.1,83.9
 	.trainer >> Go and train your pet spells
 step << Warrior
-	#completewith hearth
+	#completewith next
     .goto Thunder Bluff,57.6,85.5
 	.trainer >> Go and train your class spells
 step << Shaman
-	#completewith hearth
+	#completewith next
     .goto Thunder Bluff,22.8,21.0
 	.trainer >> Go and train your class spells
 step << Priest
-	#completewith hearth
+	#completewith next
     .goto Thunder Bluff,24.6,22.6
 	.trainer >> Go and train your class spells
 step << Mage
-	#completewith hearth
+	#completewith next
     .goto Thunder Bluff,25.2,20.9
 	.trainer >> Go and train your class spells
 step
@@ -1903,7 +1900,6 @@ step
     .turnin 1067 >> Turn in Return to Thunder Bluff
     .isOnQuest 1067
 step
-    #label hearth
 	#completewith next
 	.goto Thunder Bluff,45.8,64.7
 	.home >> Set your Hearthstone to Thunder Bluff
@@ -2480,6 +2476,25 @@ step
     .unitscan Rok'Alim the Pounder
     .complete 1151,1 --Collect Fragments of Rok'Alim (x1)
 step
+    .isOnQuest 4881
+	>>Escort will start when you accept next part of the quest.
+	.goto Thousand Needles,21.3,32.0
+	.turnin 4881 >> Turn in Assassination Plot
+step
+    .isQuestTurnedIn 4881
+	>>Escort will start when you accept next part of the quest.
+	.goto Thousand Needles,21.3,32.0    
+	.accept 4966 >> Accept Protect Kanati Greycloud
+step
+    .isOnQuest 4966
+	>>3 mobs will spawn. Let Kanati get aggro, then simply kill them
+	.goto Thousand Needles,21.4,31.8
+    .complete 4966,1 --Protect Kanati Greycloud
+step
+    .isQuestComplete 4966
+	.goto Thousand Needles,21.4,31.8    
+    .turnin 4966 >> Turn in Protect Kanati Greycloud
+step
 	.goto Thousand Needles,31.2,36.9,30 >>Run up the path here
     .isOnQuest 5064
 step
@@ -2513,25 +2528,6 @@ step
 >>Open the panther cage and kill it. Make sure to have your cooldowns/potions available
     .goto Thousand Needles,23.3,23.3
     .complete 5151,1 --Collect Hypercapacitor Gizmo (x1)
-step
-    .isOnQuest 4881
-	>>Escort will start when you accept next part of the quest.
-	.goto Thousand Needles,21.3,32.0
-	.turnin 4881 >> Turn in Assassination Plot
-step
-    .isQuestTurnedIn 4881
-	>>Escort will start when you accept next part of the quest.
-	.goto Thousand Needles,21.3,32.0    
-	.accept 4966 >> Accept Protect Kanati Greycloud
-step
-    .isOnQuest 4966
-	>>3 mobs will spawn. Let Kanati get aggro, then simply kill them
-	.goto Thousand Needles,21.4,31.8
-    .complete 4966,1 --Protect Kanati Greycloud
-step
-    .isQuestComplete 4966
-	.goto Thousand Needles,21.4,31.8    
-    .turnin 4966 >> Turn in Protect Kanati Greycloud
 step
     #label OreSample
 .goto Thousand Needles,21.5,32.3
@@ -2569,7 +2565,7 @@ step
     .turnin 1146 >> Turn in The Swarm Grows
     .accept 1147 >> Accept The Swarm Grows
 step
-    .xp <33,1
+    .xp >33,1
     >> Accept quests around the racetrack
 	.accept 1110 >> Accept Rocket Car Parts
     .goto Thousand Needles,77.8,77.2
@@ -2611,7 +2607,7 @@ step
 step
 	#sticky
 	#label partsoftheswarm
-    .isOnQuest 1110
+    .isQuestTurnedIn 1146
 	>>Grind the Silithid creatures until you get a Cracked Silithid Carapace. Click it to accept a quest.
 	.collect 5877,1,1148
 	.accept 1148 >> Accept Parts of the Swarm
@@ -2627,17 +2623,15 @@ step
 step
 	#requires partsoftheswarm
     .turnin -1147 >> Turn in The Swarm Grows
-    .goto Thousand Needles,67.6,63.9
 step
+    .goto Thousand Needles,67.6,63.9
     .turnin -1110 >> Turn in Rocket Car Parts
     .goto Thousand Needles,77.8,77.2
     .turnin -1104 >> Turn in Salt Flat Venom
     .goto Thousand Needles,78.0,77.1
     .turnin -1105 >> Turn in Hardened Shells
-    .goto Thousand Needles,78.1,77.1
 step
     .xp <33,1
-    .isQuestTurnedIn 1104
     .accept 1107 >> Accept Encrusted Tail Fins
     .accept 1106 >> Accept Martek the Exiled
 step
@@ -2909,8 +2903,9 @@ step
     .goto Orgrimmar,75.2,34.2
     .turnin 1145 >> Turn in The Swarm Grows
     .accept 1146 >> Accept The Swarm Grows
-step << !Shaman !Warrior
-    .maxlevel 32
+step
+	#completewith next
+    .xp >33,1
     .goto Orgrimmar,54.1,68.4
     .home >>Set your Hearthstone to Valley of Strength
 step << Orc !Warlock tbc
